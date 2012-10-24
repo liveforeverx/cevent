@@ -1,0 +1,25 @@
+{% extends "layout/template.html" %}
+
+{% block nav_3 %} <li class="active"><a href="/user/login/" title="Login">Login</a></li> {% endblock %}
+
+{% block left_menu %}
+    <li><a href="{% url action="register" %}" title="Register">Register</a></li>
+{% endblock %}
+
+{% block center %}
+
+    {% if error %}
+        <font color="red">{{ error }}</font>
+    {% endif %}
+    <form method="post">
+        Name:<br />
+        <input name="name" /><br /><br />
+
+        Password:<br />
+        <input name="password" type="password" /><br /><br />
+
+        <input type="submit" value="Log in" />
+        <input type="hidden" name="redirect" value="{{ redirect|default_if_none:"/" }}" />
+
+    </form>
+{% endblock %}

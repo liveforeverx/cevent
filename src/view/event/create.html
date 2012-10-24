@@ -1,0 +1,30 @@
+{% extends "event/index.html" %}
+
+{% block nav_2 %} <li class="active"><a href="/event" title="Events">Events</a></li>    {% endblock %}
+
+{% block center %}
+    <form method="post">
+        <ul>
+            <li>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required class="required" >
+            </li>
+            <li>
+                <label for="type">Type</label>
+                <input type="type" name="type" id="type" required class="required">
+            </li>
+            <li>
+                <label for="city">City:</label>
+                <input type="city" name="city" id="city" required class="required">
+            </li>
+
+            <li>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" cols="80" rows="6" required  class="required" ></textarea>
+            </li>
+            <li>
+                <button type="submit" id="submit" name="submit" class="button fright">Save</button>
+            </li>
+        </ul>
+    </form>
+{% endblock %}

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>{% block title %}Events meet{% endblock %}</title>
+<link href="/static/stylesheets/common.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<!-- Start Header -->
+	<div id="header">
+		<div class="container">
+			<h1><a href="#" title="EVENTS MEET">Events meet<span></span></a></h1>
+			<hr />
+			<!-- top navigation -->
+			<ul id="navigation">
+                {% block nav %}
+				{% block nav_1 %} <li><a href="/" title="Home">Home</a></li>                 {% endblock %}
+				{% block nav_2 %} <li><a href="/event" title="Events">Events</a></li>        {% endblock %}
+				{% block nav_3 %} <li><a href="/user/login/" title="Login">Login</a></li>    {% endblock %}
+				{% block nav_4 %} <li><a href="#" title="About">About</a></li>               {% endblock %}
+				{% block nav_5 %} <li><a href="#" title="Contact">Contact</a></li>           {% endblock %}
+                {% endblock %}
+			</ul>
+			<hr />
+			<!-- banner message and building background -->
+			<div id="banner">
+                There are many people, that want to organize something big and beautiful. The world is big enough.
+			</div>
+			<hr />
+		</div>
+	</div>
+	<!-- Start Main Content -->
+	<div id="main" class="container">
+        {% block main %}
+		<!-- left column (products and features) -->
+		<div id="leftcolumn">
+            {% block leftcolumn %}
+			<ul class="leftbox borderedlist">
+                {% block left_menu %}
+				<li><a href="#" title="Garden Tools">Garden Tools</a></li>
+				<li><a href="#" title="Organic Foods">Organic Foods</a></li>
+				<li><a href="#" title="Planter Boxes">Planter Boxes</a></li>
+				<li><a href="#" title="Landscape Services">Landscape Services</a></li>
+				<li><a href="#" title="Help Hotline">Help Hotline</a></li>
+				<li><a href="#" title="Weekly Specials">Weekly Specials</a></li>
+                {% endblock %}
+			</ul>
+            {% endblock %}
+		</div>
+		<!-- main content area -->
+		<div id="center_alone">
+            {% block center %}
+			<div class="article_wrapper">
+				<h2>Weekly News Updates</h2>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laorenim ad minim veniam, quis nostrud exerci tation ullam corper suscipit lobortis nisl ut aliq eet dolore magna aliquam erat volut pat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</p>
+			</div>
+			<div class="article_wrapper">
+				<h2>Current Employment News</h2>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laorenim ad minim veniam, quis nostrud exerci tation ullam corper suscipit lobortis nisl ut aliq eet dolore magna aliquam erat volut pat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipis cing elit.</p>
+			</div>
+			<hr />
+            {% endblock %}
+		</div>
+        {% endblock %}
+	</div>
+	<!-- Start Footer -->
+	<div id="footer">
+        {% block footer %}
+		<div class="container">
+			<a id="designby" href="" title="Community developing">Community developing</a>
+			<ul id="footer_navigation">
+                {% block footer_nav %}
+                {% block footer_nav_1 %} <li><a href="/" title="Home">Home</a></li>                  {% endblock %}
+                {% block footer_nav_2 %} <li><a href="/event" title="Events">Events</a></li>         {% endblock %}
+                {% block footer_nav_3 %} <li><a href="/user/login/" title="Login">Login</a></li>     {% endblock %}
+                {% block footer_nav_4 %} <li><a href="#" title="About">About</a></li>                {% endblock %}
+                {% block footer_nav_5 %} <li><a href="#" title="Contact">Contact</a></li>            {% endblock %}
+                {% endblock %}
+			</ul>
+		</div>
+        {% endblock %}
+	</div>
+</body>
+</html>

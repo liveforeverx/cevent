@@ -1,0 +1,10 @@
+*.beam
+/ebin/*
+/tetrapak/.local.cache
+*.*~
+.*.*.sw*
+*.log
+erl_crash.dump
+/test-log/
+/doc/*
+!/doc/overview.edoc

@@ -1,0 +1,30 @@
+<html><head>
+<title>Fresh hot greetings!</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/
+1.7.0/jquery.min.js"></script>
+<script>
+function listen_for_events(timestamp) {
+$.ajax("/index/pull/"+timestamp, { success:
+function(data, code, xhr) {
+for (var i=0; i<data.greetings.length; i++) {
+var msg = data.greetings[i].greeting_text;
+$("#greeting_list").append("<li>"+msg);
+}
+listen_for_events(data.timestamp);
+} });
+}
+$(document).ready(function() {
+listen_for_events({{ timestamp }});
+});
+</script>
+</head>
+<body>
+<ul id="greeting_list">
+{% for greeting in greetings %}
+<li>{{ greeting.greeting_text }}
+{% empty %}
+<li>No greetings!
+{% endfor %}
+</ul>
+</body>
+</html>

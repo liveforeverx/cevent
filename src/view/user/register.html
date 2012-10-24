@@ -1,0 +1,25 @@
+{% extends "user/login.html" %}
+
+{% block center %}
+
+    {% if errors %}
+        <ol>
+        {% for error in errors %}
+            <li><font color=red>{{ error }}</font>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+    <form method="post">
+        Name:<br />
+        <input name="name" value="{{ name|default_if_none:"" }}" /><br />
+        Password:<br />
+        <input name="password" type="password" value="{{ password|default_if_none:"" }}" /><br /><br />
+
+
+        Notes<br />
+        <textarea name="notes">{{ notes|default_if_none:"" }}</textarea><br /><br />
+
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

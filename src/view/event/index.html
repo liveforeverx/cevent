@@ -1,0 +1,11 @@
+{% extends "layout/template.html" %}
+
+{% block nav_2 %} <li class="active"><a href="/event" title="Events">Events</a></li>    {% endblock %}
+
+{% block left_menu %}
+    <li><a href="{% url action="create" %}" title="Create event">Create event</a></li>
+    <li><a href="{% url action="category" %}" title="Events categorys">Events categorys</a></li>
+{% endblock %}
+
+{% block center %}
+{% endblock %}

@@ -1,0 +1,7 @@
+{% if greetings %}
+{% for greeting in greetings %}
+<li>{{ greeting.greeting_text }}
+{% endfor %}
+{% else %}
+<li>No greetings!
+{% endif %}
