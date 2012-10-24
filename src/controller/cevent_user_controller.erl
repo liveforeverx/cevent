@@ -32,7 +32,7 @@ loggedin('GET', [Name], Person) ->
 loggedin('GET', [], Person) ->
     {ok, to_output(Person)};
 
-loggedin('POST', [], Person) ->
+loggedin('POST', _, Person) ->
     {redirect, "/user/login/",
         [ mochiweb_cookies:cookie("user_id", "", [{path, "/"}]),
           mochiweb_cookies:cookie("session_id", "", [{path, "/"}]) ]}.
