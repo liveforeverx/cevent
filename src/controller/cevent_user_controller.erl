@@ -53,7 +53,7 @@ register('POST', [], Person) ->
     case amazon_lib_sdb:get(Name) of
         [{attributes,[]}, _] ->
             Attrs = [{"name", to_list(Req:post_param("name"))},
-                     {"passhash", user_lib:hash_for(Req:post_param("name"), Req:post_param("password"))},
+                     {"passhash", auth_lib:hash_for(Req:post_param("name"), Req:post_param("password"))},
                      {"notes", to_list(Req:post_param("notes"))}],
             amazon_lib_sdb:put(Name, Attrs),
             {redirect, "/user/registered/"};

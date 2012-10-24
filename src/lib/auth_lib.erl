@@ -51,7 +51,7 @@ session_identifier(Id) ->
 
 check_password(Name, PwdHash, Password) ->
     Salt = mochihex:to_hex(erlang:md5(Name)),
-    user_lib:hash_password(Password, Salt) =:= PwdHash.
+    hash_password(Password, Salt) =:= PwdHash.
 
 login_cookies(Id) ->
     [ mochiweb_cookies:cookie("user_id", Id, [{path, "/"}]),
