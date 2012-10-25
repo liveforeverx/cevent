@@ -18,9 +18,9 @@ login('POST', [], Person) ->
             case auth_lib:check_password(inl("name", Attrs), inl("passhash", Attrs), Req:post_param("password")) of
                 true ->
                     {redirect, "/user/loggedin/" ++ Name ++ "/", auth_lib:login_cookies(inl("name", Attrs))};
-                   % {redirect, proplists:get_value("redirect", Req:post_params(), "/"), auth_lib:login_cookies(inl("name", Attrs))};
-                false ->
-                    {ok, [{error, "Bad name/password combination"}]}
+                           % {redirect, proplists:get_value("redirect", Req:post_params(), "/"), auth_lib:login_cookies(inl("name", Attrs))};
+                    false ->
+                        {ok, [{error, "Bad name/password combination"}]}
             end;
         _ ->
             {ok, [{error, "No Person named " ++ Name}]}
@@ -50,15 +50,20 @@ register('GET', [], Person) ->
      end;
 register('POST', [], Person) ->
     Name = to_list(Req:post_param("name")),
-    case amazon_lib_sdb:get(Name) of
-        [{attributes,[]}, _] ->
-            Attrs = [{"name", to_list(Req:post_param("name"))},
-                     {"passhash", auth_lib:hash_for(Req:post_param("name"), Req:post_param("password"))},
-                     {"notes", to_list(Req:post_param("notes"))}],
-            amazon_lib_sdb:put(Name, Attrs),
-            {redirect, "/user/registered/"};
-        _ ->
-            {ok, [{error, "Person with name " ++ Name ++ " already exists"}]}
+    case Name =/= "" of
+        true ->
+            case amazon_lib_sdb:get(Name) of
+                [{attributes,[]}, _] ->
+                    Attrs = [{"name", to_list(Req:post_param("name"))},
+                             {"passhash", auth_lib:hash_for(Req:post_param("name"), Req:post_param("password"))},
+                             {"notes", to_list(Req:post_param("notes"))}],
+                    amazon_lib_sdb:put(Name, Attrs),
+                    {redirect, "/user/registered/"};
+                _ ->
+                    {ok, [{error, "Person with name " ++ Name ++ " already exists"}]}
+            end;
+        false ->
+            {ok, [{error, "Person cann't have no name"}]}
     end.
 
 to_list(Bin) when is_binary(Bin) -> binary_to_list(Bin);
