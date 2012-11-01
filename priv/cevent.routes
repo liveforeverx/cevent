@@ -17,6 +17,8 @@
 {"/", [{controller, "index"}, {action, "index"}]}.
 
 {"/event", [{controller, "event"}, {action, "index"}]}.
+{"/about", [{controller, "index"}, {action, "about"}]}.
+{"/contact", [{controller, "index"}, {action, "contact"}]}.
 
 % 404 File Not Found handler
 {404, [{controller, "error"}, {action, "notfound"}]}.

@@ -2,11 +2,13 @@
 -compile(export_all).
 
 index('GET', []) ->
-    Name = Req:cookie("user_id"),
-    Args = [{person, Name} || (Name == "") orelse (Name =/= undefined)],
-    {ok, Args}.
+    {ok, auth_lib:partial_cookie(Req)}.
 
 logout('GET', []) ->
-    Name = Req:cookie("user_id"),
-    Args = [{person, Name} || (Name == "") orelse (Name =/= undefined)],
-    {ok, Args}.
+    {ok, auth_lib:partial_cookie(Req)}.
+
+about('GET', []) ->
+    {ok, auth_lib:partial_cookie(Req)}.
+
+contact('GET', []) ->
+    {ok, auth_lib:partial_cookie(Req)}.
