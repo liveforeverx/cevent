@@ -54,9 +54,10 @@ check_password(Name, PwdHash, Password) ->
     hash_password(Password, Salt) =:= PwdHash.
 
 login_cookies(Id) ->
-    [mochiweb_cookies:cookie("user_id", Id, [{path, "/"}, {max_age, 10}]),
+    [mochiweb_cookies:cookie("user_id", Id, [{path, "/"}, {max_age, 60}]),
      mochiweb_cookies:cookie("session_id", session_identifier(Id), [{path, "/"},
-                                                                    {secure, true}]) ].
+                                                                    {secure, true},
+                                                                    {max_age, 60}]) ].
 
 partial_cookie(Req) ->
     Name = Req:cookie("user_id"),
