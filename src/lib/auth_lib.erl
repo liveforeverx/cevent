@@ -54,5 +54,6 @@ check_password(Name, PwdHash, Password) ->
     hash_password(Password, Salt) =:= PwdHash.
 
 login_cookies(Id) ->
-    [ mochiweb_cookies:cookie("user_id", Id, [{path, "/"}]),
-        mochiweb_cookies:cookie("session_id", session_identifier(Id), [{path, "/"}]) ].
+    [mochiweb_cookies:cookie("user_id", Id, [{path, "/"}]),
+     mochiweb_cookies:cookie("session_id", session_identifier(Id), [{path, "/"},
+                                                                    {secure, true}]) ].

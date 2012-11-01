@@ -5,11 +5,13 @@ before_(_) ->
     auth_lib:check_user(Req).
 
 login('GET', [], Person)->
-     case Person == undefined of
+    case Person == undefined of
         false ->
-            {redirect, "/user/loggedin/"};
+            Name = Req:cookie("user_id"),
+            Args = [{person, Name} || (Name == "") orelse (Name =/= undefined)],
+            {ok, Args};
         true ->
-            {ok, [{redirect, Req:header(referer)},{ip, Req:peer_ip()},{person,Person}]}
+            {ok, [{redirect, Req:header(referer)}, {ip, Req:peer_ip()}, {person,Person}]}
      end;
 login('POST', [], Person) ->
     Name = Req:post_param("name"),
@@ -17,7 +19,8 @@ login('POST', [], Person) ->
         [{attributes, Attrs}, _] when Attrs =/= [] ->
             case auth_lib:check_password(inl("name", Attrs), inl("passhash", Attrs), Req:post_param("password")) of
                 true ->
-                    {redirect, "/user/loggedin/" ++ Name ++ "/", auth_lib:login_cookies(inl("name", Attrs))};
+                    {redirect, proplists:get_value("redirect",
+                        Req:post_params(), "/"), auth_lib:login_cookies(inl("name", Attrs))};
                            % {redirect, proplists:get_value("redirect", Req:post_params(), "/"), auth_lib:login_cookies(inl("name", Attrs))};
                     false ->
                         {ok, [{error, "Bad name/password combination"}]}
@@ -26,17 +29,10 @@ login('POST', [], Person) ->
             {ok, [{error, "No Person named " ++ Name}]}
     end.
 
-loggedin('GET', [Name], Person) ->
-    {ok, [{name, Name}]};
-
-loggedin('GET', [], Person) ->
-    {ok, to_output(Person)};
-
-loggedin('POST', _, Person) ->
-    {redirect, "/user/login/",
+exit('GET', [], Person) ->
+    {redirect, "/index/logout",
         [ mochiweb_cookies:cookie("user_id", "", [{path, "/"}]),
           mochiweb_cookies:cookie("session_id", "", [{path, "/"}]) ]}.
-
 
 registered('GET', [], Person) ->
     {ok, []}.
@@ -44,7 +40,7 @@ registered('GET', [], Person) ->
 register('GET', [], Person) ->
      case Person == undefined of
         false ->
-            {redirect, "/user/loggedin/"};
+            {redirect, "/"};
         true ->
             {ok, [{ip, Req:peer_ip()}]}
      end;

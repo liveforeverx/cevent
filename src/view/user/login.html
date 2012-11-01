@@ -1,6 +1,9 @@
-{% extends "layout/template.html" %}
+{% extends "layout/template_user.html" %}
 
-{% block nav_3 %} <li class="active"><a href="/user/login/" title="Login">Login</a></li> {% endblock %}
+{% block nav_3 %}
+{% if person %} <li class="active"><a href="/user/logout/">Logout</a> </li>
+{% else %} <li class="active"><a href="/user/login/">Login</a> </li> {% endif %}
+{% endblock %}
 
 {% block left_menu %}
     <li><a href="{% url action="register" %}" title="Register">Register</a></li>
@@ -8,6 +11,8 @@
 
 {% block center %}
 
+{% if person %}
+{% else %}
     {% if error %}
         <font color="red">{{ error }}</font>
     {% endif %}
@@ -22,4 +27,5 @@
         <input type="hidden" name="redirect" value="{{ redirect|default_if_none:"/" }}" />
 
     </form>
+{% endif %}
 {% endblock %}

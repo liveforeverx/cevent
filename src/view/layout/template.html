@@ -1,84 +1,206 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html lang="en-US">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta charset="UTF-8">
 <title>{% block title %}Events meet{% endblock %}</title>
-<link href="/static/stylesheets/common.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/style.css" media="all" />
+<link rel="stylesheet" media="all" href="/static/style/type/folks.css" />
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/css/ie7.css" media="all" />
+<![endif]-->
+<script type="text/javascript" src="/static/style/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/static/style/js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="/static/style/js/scripts.js"></script>
 </head>
 <body>
-	<!-- Start Header -->
-	<div id="header">
-		<div class="container">
-			<h1><a href="#" title="EVENTS MEET">Events meet<span></span></a></h1>
-			<hr />
-			<!-- top navigation -->
-			<ul id="navigation">
+<div id="container">
+  <!-- Begin Header Wrapper -->
+  <div id="page-top">
+    <div id="header-wrapper">
+      <!-- Begin Header -->
+      <div id="header">
+        <div id="logo"><a href="index.html"><img src="/static/style/images/logo.png" alt="Events meet" /></a></div>
+        <!-- Logo -->
+        <!-- Begin Menu -->
+        <div id="menu-wrapper">
+          <div id="smoothmenu1" class="ddsmoothmenu">
+            <ul>
                 {% block nav %}
-				{% block nav_1 %} <li><a href="/" title="Home">Home</a></li>                 {% endblock %}
-				{% block nav_2 %} <li><a href="/event" title="Events">Events</a></li>        {% endblock %}
-				{% block nav_3 %} <li><a href="/user/login/" title="Login">Login</a></li>    {% endblock %}
-				{% block nav_4 %} <li><a href="#" title="About">About</a></li>               {% endblock %}
-				{% block nav_5 %} <li><a href="#" title="Contact">Contact</a></li>           {% endblock %}
+                {% block nav_1 %} <li><a href="/">Home</a> </li>                  {% endblock %}
+                {% block nav_2 %} <li><a href="/event">Events</a> </li>           {% endblock %}
+                {% block nav_3 %} <li><a href="/user/login/">Login</a> </li>      {% endblock %}
+                {% block nav_4 %} <li><a href="/about">About</a></li>             {% endblock %}
+                {% block nav_5 %} <li><a href="">Contact</a></li>                 {% endblock %}
                 {% endblock %}
-			</ul>
-			<hr />
-			<!-- banner message and building background -->
-			<div id="banner">
-                There are many people, that want to organize something big and beautiful. The world is big enough.
-			</div>
-			<hr />
-		</div>
-	</div>
-	<!-- Start Main Content -->
-	<div id="main" class="container">
-        {% block main %}
-		<!-- left column (products and features) -->
-		<div id="leftcolumn">
-            {% block leftcolumn %}
-			<ul class="leftbox borderedlist">
-                {% block left_menu %}
-				<li><a href="#" title="Garden Tools">Garden Tools</a></li>
-				<li><a href="#" title="Organic Foods">Organic Foods</a></li>
-				<li><a href="#" title="Planter Boxes">Planter Boxes</a></li>
-				<li><a href="#" title="Landscape Services">Landscape Services</a></li>
-				<li><a href="#" title="Help Hotline">Help Hotline</a></li>
-				<li><a href="#" title="Weekly Specials">Weekly Specials</a></li>
-                {% endblock %}
-			</ul>
-            {% endblock %}
-		</div>
-		<!-- main content area -->
-		<div id="center_alone">
-            {% block center %}
-			<div class="article_wrapper">
-				<h2>Weekly News Updates</h2>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laorenim ad minim veniam, quis nostrud exerci tation ullam corper suscipit lobortis nisl ut aliq eet dolore magna aliquam erat volut pat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</p>
-			</div>
-			<div class="article_wrapper">
-				<h2>Current Employment News</h2>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laorenim ad minim veniam, quis nostrud exerci tation ullam corper suscipit lobortis nisl ut aliq eet dolore magna aliquam erat volut pat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipis cing elit.</p>
-			</div>
-			<hr />
-            {% endblock %}
-		</div>
+            </ul>
+          </div>
+        </div>
+        <!-- End Menu -->
+      </div>
+      <!-- End Header -->
+    </div>
+  </div>
+  <!-- End Header Wrapper -->
+
+  <!-- Begin Wrapper -->
+  <div id="wrapper">
+    {% block main %}
+    <div class="tab-wrapper">
+      {% block leftcolumn %}
+      <ul id="tab-menu">
+        {% block left %}
+        <li class="selected"><img src="/static/style/images/icon-palette.png" alt="" /> Graphic Design</li>
+        <li><img src="/static/style/images/icon-art.png" alt="" /> Illustration</li>
+        <li><img src="/static/style/images/icon-laptop.png" alt="" /> Web Design</li>
+        <li><img src="/static/style/images/icon-camera.png" alt="" /> Photography</li>
         {% endblock %}
-	</div>
-	<!-- Start Footer -->
-	<div id="footer">
-        {% block footer %}
-		<div class="container">
-			<a id="designby" href="" title="Community developing">Community developing</a>
-			<ul id="footer_navigation">
-                {% block footer_nav %}
-                {% block footer_nav_1 %} <li><a href="/" title="Home">Home</a></li>                  {% endblock %}
-                {% block footer_nav_2 %} <li><a href="/event" title="Events">Events</a></li>         {% endblock %}
-                {% block footer_nav_3 %} <li><a href="/user/login/" title="Login">Login</a></li>     {% endblock %}
-                {% block footer_nav_4 %} <li><a href="#" title="About">About</a></li>                {% endblock %}
-                {% block footer_nav_5 %} <li><a href="#" title="Contact">Contact</a></li>            {% endblock %}
-                {% endblock %}
-			</ul>
-		</div>
-        {% endblock %}
-	</div>
+      </ul>
+      {% endblock %}
+      <div class="tab-content">
+        {% block center %}
+        <div class="tab show">
+          <h3>Graphic Design</h3>
+          <p><img src="/static/style/images/art/portfolio12-th.jpg" alt="" class="right"/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum consequat sem, nec tincidunt enim feugiat sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed egestas mattis tortor, quis auctor orci commodo id. In hac habitasse platea dictumst. Integer sed nisi nibh. Integer neque mi, pellentesque ut adipiscing ultrices, egestas vel ligula. Integer interdum ultrices turpis. Ut non est sed odio malesuada congue ac id ipsum. Duis mi tellus, porttitor a tristique eu, porttitor a odio. Curabitur accumsan cursus sollicitudin. Nullam quis ante ante, sed molestie elit. Morbi egestas est quis metus luctus accumsan. Duis interdum lectus eget est hendrerit mollis. Mauris vestibulum dictum porta. Praesent vel odio quis augue ultricies aliquam eget ut magna.</p>
+          <p>Aliquam porttitor faucibus rhoncus. Aliquam erat volutpat. Vestibulum molestie fringilla mollis. Fusce eu neque arcu. Donec blandit imperdiet mollis. Etiam suscipit nisl eget libero aliquet tincidunt. Mauris euismod, tellus ac pellentesque malesuada, ligula tortor venenatis velit, at vehicula ligula lorem ac nisi. Maecenas et ligula arcu. Nullam vel accumsan felis. Vivamus venenatis diam vel magna ornare pellentesque. Pellentesque pharetra facilisis consectetur euismod mauris felis.</p>
+          <h3>Aenean hendrerit tincidunt</h3>
+          <p><img src="/static/style/images/art/portfolio10-th.jpg" alt="" class="left"/> Nullam pellentesque placerataliquet. Donec vulputate magna in elit blandit vitae congue lectus venenatis. Pellentesque leo augue, mattis iaculis luctus eget, ultricies ac tortor. Duis nec blandit arcu. Etiam est felis, iaculis non lobortis id, sodales eu dolor. Vivamus placerat adipiscing tincidunt. Fusce ultrices porta tortor. Maecenas id purus magna, id congue turpis. Aenean hendrerit tincidunt eleifend. Etiam eu erat vitae diam consectetur ornare. Nam sed facilisis nibh. Ut varius leo.</p>
+        </div>
+        <div class="tab">
+          <h3>Illustration</h3>
+          <p><img src="/static/style/images/art/portfolio11-th.jpg" alt="" class="right"/> Vivamus mauris felis, egestas iaculis blandit vulputate, convallis sit amet justo.  Cras id orci felis. Duis lobortis blandit mollis. Donec in dignissim dui. Praesent vitae leo tempus turpis luctus convallis. Cras consectetur commodo ornare. Aliquam semper dignissim massa nec condimentum. Nunc tincidunt gravida velit, nec elementum erat aliquam aliquam. Fusce et risus orci. Aliquam at sapien in lacus interdum mattis nec at sem. Sed elit elit, vehicula a adipiscing vitae, dignissim in quam. Aliquam erat volutpat. Proin non massa nibh, sit amet placerat nibh. Aliquam posuere aliquam enim vitae euis. Morbi vestibulum porttitor pellentesque. Vestibulum ac pellentesque dolor. </p>
+          <div class="one-half">
+            <div class="one-fifth"><img src="/static/style/images/icon1.png" /></div>
+            <div class="three-fourth last">
+              <h4>Graphic Design</h4>
+              <p>Nulla ipsum nunc, gravida tempus varius eu, eleifend non elit. Nam elementum iaculis lorem, et viverra magna tempus vitae. Phasellus pharetra luctus felis. Nullam turpis ante, fermentum vitae fermentum vitae, tempus ut libero.</p>
+            </div>
+          </div>
+          <div class="one-half last">
+            <div class="one-fifth"><img src="/static/style/images/icon2.png" /></div>
+            <div class="three-fourth last">
+              <h4>Illustration</h4>
+              <p>Nulla ipsum nunc, gravida tempus varius eu, eleifend non elit. Nam elementum iaculis lorem, et viverra magna tempus vitae. Phasellus pharetra luctus felis. Nullam turpis ante, fermentum vitae fermentum vitae, tempus ut libero.</p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="divider2"></div>
+          <div class="one-half">
+            <div class="one-fifth"><img src="/static/style/images/icon3.png" /></div>
+            <div class="three-fourth last">
+              <h4>Interior Design</h4>
+              <p>Nulla ipsum nunc, gravida tempus varius eu, eleifend non elit. Nam elementum iaculis lorem, et viverra magna tempus vitae. Phasellus pharetra luctus felis. Nullam turpis ante, fermentum vitae fermentum vitae, tempus ut libero.</p>
+            </div>
+          </div>
+          <div class="one-half last">
+            <div class="one-fifth"><img src="/static/style/images/icon4.png" /></div>
+            <div class="three-fourth last">
+              <h4>3D Design</h4>
+              <p>Nulla ipsum nunc, gravida tempus varius eu, eleifend non elit. Nam elementum iaculis lorem, et viverra magna tempus vitae. Phasellus pharetra luctus felis. Nullam turpis ante, fermentum vitae fermentum vitae, tempus ut libero.</p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="tab">
+          <h3>Web Design</h3>
+          <p><img src="/static/style/images/art/portfolio10-th.jpg" alt="" class="left"/> Nullam pellentesque placerataliquet. Donec vulputate magna in elit blandit vitae congue lectus venenatis. Pellentesque leo augue, mattis iaculis luctus eget, ultricies ac tortor. Duis nec blandit arcu. Etiam est felis, iaculis non lobortis id, sodales eu dolor. Vivamus placerat adipiscing tincidunt. Fusce ultrices porta tortor. Maecenas id purus magna, id congue turpis. Aenean hendrerit tincidunt eleifend. Etiam eu erat vitae diam consectetur ornare. Nam sed facilisis nibh. Ut varius leo.</p>
+          <p> Vestibulum at hendrerit ipsum. Fusce sit amet nibh velit, vel accumsan justo. Sed mi ligula, pellentesque varius pretium et, bibendum non metus. Vestibulum vitae libero tortor, eu ullamcorper urna. Duis aliquam risus eu orci tristique non dictum sem feugiat. Nullam leo nibh, iaculis ac commodo ut, elementum vel tellus. Nunc vehicula, mi non pharetra condimentum, magna tellus rutrum quam, sit amet ultricies enim ipsum vitae urna. Etiam ac arcu velit, in sagittis tortor. Aliquam augue tellus, accumsan ut eleifend vitae, vehicula sed nulla. Nam vel orci risus, in imperdiet turpis. Ut aliquam tortor vitae augue ultricies hendrerit. Vivamus vel gravida lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque elit tellus, eleifend ut fringilla quis, venenatis vel velit. Suspendisse quis interdum lorem. </p>
+        </div>
+        <div class="tab">
+          <h3>Photography</h3>
+          <p><img src="/static/style/images/art/portfolio9-th.jpg" alt="" class="right"/>Vestibulum at hendrerit ipsum. Fusce sit amet nibh velit, vel accumsan justo. Sed mi ligula, pellentesque varius pretium et, bibendum non metus. Vestibulum vitae libero tortor, eu ullamcorper urna. Duis aliquam risus eu orci tristique non dictum sem feugiat. Nullam leo nibh, iaculis ac commodo ut, elementum vel tellus. Nunc vehicula, mi non pharetra condimentum, magna tellus rutrum quam, sit amet ultricies enim ipsum vitae urna. Etiam ac arcu velit, in sagittis tortor. </p>
+          <p> Aliquam augue tellus, accumsan ut eleifend vitae, vehicula sed nulla. Nam vel orci risus, in imperdiet turpis. Ut aliquam tortor vitae augue ultricies hendrerit. Vivamus vel gravida lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque elit tellus, eleifend ut fringilla quis, venenatis vel velit. Suspendisse quis interdum lorem.</p>
+        </div>
+      {% endblock %}
+      </div>
+    </div>
+    <div class="clear"></div>
+    {% endblock %}
+  </div>
+  <!-- End Wrapper -->
+
+  <div class="clearfix"></div>
+  <div class="push"></div>
+</div>
+
+<!-- Begin Footer -->
+<div id="footer-wrapper">
+  <div id="footer">
+    <div id="footer-content">
+      {% block footer %}
+
+      <!-- Begin Copyright -->
+      <div id="copyright">
+        <p>© Copyright 2011 Delphic | Creative Portfolio Template</p>
+      </div>
+      <!-- End Copyright -->
+      <!--
+      {% block footer_nav %}
+      {% block footer_nav_1 %} <li><a href="/" title="Home">Home</a></li>                  {% endblock %}
+      {% block footer_nav_2 %} <li><a href="/event" title="Events">Events</a></li>         {% endblock %}
+      {% block footer_nav_3 %} <li><a href="/user/login/" title="Login">Login</a></li>     {% endblock %}
+      {% block footer_nav_4 %} <li><a href="#" title="About">About</a></li>                {% endblock %}
+      {% block footer_nav_5 %} <li><a href="#" title="Contact">Contact</a></li>            {% endblock %}
+      {% endblock %}
+      -->
+      <!-- Begin Social Icons -->
+      <div id="socials">
+        <ul>
+          <li><a href="#"><img src="/static/style/images/icon-rss.png" alt="" /></a></li>
+          <li><a href="#"><img src="/static/style/images/icon-twitter.png" alt="" /></a></li>
+          <li><a href="#"><img src="/static/style/images/icon-dribble.png" alt="" /></a></li>
+          <li><a href="#"><img src="/static/style/images/icon-tumblr.png" alt="" /></a></li>
+          <li><a href="#"><img src="/static/style/images/icon-flickr.png" alt="" /></a></li>
+          <li><a href="#"><img src="/static/style/images/icon-facebook.png" alt="" /></a></li>
+        </ul>
+      </div>
+      <!-- End Social Icons -->
+      {% endblock %}
+
+    </div>
+  </div>
+</div>
+<!-- End Footer -->
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  //Get all the LI from the #tabMenu UL
+  $('#tab-menu > li').click(function(){
+    //remove the selected class from all LI
+    $('#tab-menu > li').removeClass('selected');
+    //Reassign the LI
+    $(this).addClass('selected');
+    //Hide all the DIV in .tab-content
+    $('.tab-content div.tab').slideUp('slow');
+    //Look for the right DIV in boxBody according to the Navigation UL index, therefore, the arrangement is very important.
+    $('.tab-content div.tab:eq(' + $('#tab-menu > li').index(this) + ')').slideDown('slow');
+  }).mouseover(function() {
+    //Add and remove class, Personally I dont think this is the right way to do it, anyone please suggest
+    $(this).addClass('mouseover');
+    $(this).removeClass('mouseout');
+  }).mouseout(function() {
+    //Add and remove class
+    $(this).addClass('mouseout');
+    $(this).removeClass('mouseover');
+  });
+});
+
+
+$(function() {
+            var offset = $("#tab-menu").offset();
+            var topPadding = 15;
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > offset.top) {
+                    $("#tab-menu").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $("#tab-menu").stop().animate({
+                        marginTop: 0
+                    });
+                };
+            });
+});
+</script>
 </body>
 </html>
